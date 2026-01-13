@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Breast Cancer Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            padding: 30px;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            width: 400px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 6px 0;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e2e3e5;
+            border-radius: 6px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Breast Cancer Prediction</h2>
+
+<form action="/predict_api" method="post">
+    <label>Radius Mean</label>
+    <input type="number" step="any" name="radius_mean" required>
+
+    <label>Texture Mean</label>
+    <input type="number" step="any" name="texture_mean" required>
+
+    <label>Perimeter Mean</label>
+    <input type="number" step="any" name="perimeter_mean" required>
+
+    <label>Area Mean</label>
+    <input type="number" step="any" name="area_mean" required>
+
+    <label>Smoothness Mean</label>
+    <input type="number" step="any" name="smoothness_mean" required>
+
+    <label>Compactness Mean</label>
+    <input type="number" step="any" name="compactness_mean" required>
+
+    <label>Concavity Mean</label>
+    <input type="number" step="any" name="concavity_mean" required>
+
+    <label>Concave Points Mean</label>
+    <input type="number" step="any" name="concave_points_mean" required>
+
+    <label>Symmetry Mean</label>
+    <input type="number" step="any" name="symmetry_mean" required>
+
+    <label>Fractal Dimension Mean</label>
+    <input type="number" step="any" name="fractal_dimension_mean" required>
+
+    <button type="submit">Predict</button>
+</form>
+
+{% if prediction_text %}
+<div class="result">{{ prediction_text }}</div>
+{% endif %}
+
+</body>
+</html>
