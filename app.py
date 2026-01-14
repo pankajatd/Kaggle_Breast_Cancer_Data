@@ -3,6 +3,9 @@ import pickle
 import numpy as np
 import os
 
+import webbrowser
+from threading import Timer
+
 app = Flask(__name__)
 
 # Load the model from the same folder as app.py
@@ -43,4 +46,6 @@ def predict_api():
         return render_template('home.html', prediction_text=f"Error: {str(e)}")
 
 if __name__ == "__main__":
+    # Open the browser after 1 second to ensure server is running
+    Timer(1, lambda: webbrowser.open("http://127.0.0.1:5000")).start()
     app.run(debug=True)
